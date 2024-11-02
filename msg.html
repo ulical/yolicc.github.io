@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            color: #fff;
+            box-sizing: border-box;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: linear-gradient(90deg,#e0c3fc 0%,#8ec5fc 100%);
+        }
+        .msgs{
+            margin-top: 100px;
+            width: 1200px;
+            padding: 50px 100px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(255,255,255,0.43);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px #000020;
+        }
+        .form{
+            display: flex;
+            justify-content: center;
+            position: relative;
+            flex-direction: column;
+            width: 100%;
+            padding-bottom: 70px;
+        }
+        input:focus,
+        textarea:focus{
+            outline: none;
+        }
+
+        input,
+        textarea{
+            border: none;
+            color: #000;
+            margin-bottom: 40px;
+            font: 900 40px;
+            border-radius: 10px;
+            padding: 30px;
+        }
+        #username{
+            height: 90px;
+        }
+        #msg{
+            height: 200px;
+        }
+
+        .msgs h1{
+            width: 100%;
+            text-align: left;
+            margin-bottom: 70px;
+            font-size: 140px;
+            background-image: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 10px;
+       
+        }
+        #submitBtn{
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            background-image: linear-gradient(90deg,#e0c3fc 0%,#8ec5fc 100%);
+            border: none;
+            font-size: 30px;
+            width: 200px;
+            height: 70px;
+            border-radius: 50px;
+        }
+        #msgBoard{
+            width: 100%;
+            text-align: left;
+        }
+
+        @keyframes messageFadeIn{
+            to{
+                opacity: 1;
+            }
+        }
+
+        .msg{
+            width: 100%;
+            margin: 10px;
+            padding: 10px;
+            font-size:40px;
+            opacity: 0;
+            animation: messageFadeIn 0.5s ease forwards;
+            background-image: linear-gradient(90deg,#8ec5fc 100%,#e0c3fc 0%);
+            background-color: #fff;
+            margin: 70px 0;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px #000020;
+            text-shadow: 0px 0px 20px #fff;
+        }
+        .msg-info{
+            height: 100px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 36px;
+            position: relative;
+        }
+        .info{
+            transform: translateY(-30px);
+        }
+        .info img{
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 10px #fff solid;
+        }
+        strong{
+            position: absolute;
+            width: 800px;
+            letter-spacing: 3px;
+            top: 70px;
+            left: 170px;
+        }
+        .content{
+            font-size: 36px;
+            margin: 30px;
+            width: 95%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="msgs">
+        <h1>留言板</h1>
+        <div class="form">
+            <input type="text" id="username" placeholder="用户名">
+            <textarea  id="msg" placeholder="留言内容"></textarea>
+            <button id="submitBtn">留言</button>
+        </div>
+        <div id="msgBoard">
+            <div class="msg">
+                <div class="msg-info">
+                    <div class="info">
+                        <img src="xtd.jpg" width="50px" height="50px">
+                        <strong>miemie</strong>
+                    </div>
+                </div>
+                <div class="content">你好</div>
+            </div>
+        </div>
+        <div id="msgBoard">
+            <div class="msg">
+                <div class="msg-info">
+                    <div class="info">
+                        <img src="xtd.jpg" width="50px" height="50px">
+                        <strong>伦理问题</strong>
+                    </div>
+                </div>
+                <div class="content">今天吃啥</div>
+            </div>
+        </div>
+        <div id="msgBoard">
+            <div class="msg">
+                <div class="msg-info">
+                    <div class="info">
+                        <img src="xtd.jpg" width="50px" height="50px">
+                        <strong>今天一败涂地了么</strong>
+                    </div>
+                </div>
+                <div class="content">破论文害得我作业都做不完了</div>
+            </div>
+        </div>
+        <div id="msgBoard">
+            <div class="msg">
+                <div class="msg-info">
+                    <div class="info">
+                        <img src="xtd.jpg" width="50px" height="50px">
+                        <strong>？</strong>
+                    </div>
+                </div>
+                <div class="content">6</div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+<script>
+    document.getElementById('submitBtn').addEventListener('click',function(){
+        var username = document.getElementById('username').value;
+        var msg = document.getElementById('msg').value;
+        if(msg === ''){
+            alert('请输入内容');
+            return;
+        } 
+        if(username === ''){
+            username = '匿名';
+        }
+        var msgBoard = document.getElementById('msgBoard');
+        var newMsg = document.createElement('div');
+        newMsg.classList.add('msg');
+        newMsg.innerHTML = '<div class="msg-info"><div class="info"><img src="xtd.jpg"><strong>'
+            + username + '</strong></div>发布于：' + getCurrentTime() + '</div><div class="content">' + msg +'</div>';
+
+        msgBoard.insertBefore(newMsg,msgBoard.firstChild);
+
+        document.getElementById('username').value = '';
+        document.getElementById('msg').value = '';
+    });
+
+    function getCurrentTime(){
+        var now = new Date();
+        var year = now.getFullYear();
+        var month = ('0' + (now.getMonth() + 1)).slice(-2);
+        var day = ('0' + now.getDate()).slice(-2);
+        var hours = ('0' + now.getHours()).slice(-2);
+        var minutes = ('0' + now.getMinutes()).slice(-2);
+        var second = ('0' + now.getSeconds()).slice(-2);
+        return year + '/' + month + '/' + day + ' ' + hours + ':' + minutes + ':' + second;
+    }
+
+</script>
+</html>

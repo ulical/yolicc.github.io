@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    *{
+    margin: 0;
+    padding: 0;
+}
+body{
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(125deg,
+  hsl(61, 85%, 69%),
+  hsl(186, 85%, 69%),
+  #079bdb,
+  #3168d6,
+  #0008ff,
+  rgb(255, 89, 0));
+  background-size: 500%;
+  background-attachment:fixed;
+  animation: bgAnimation 5s linear infinite;
+  user-select: none;
+}
+.keyboard{
+    display: flex;
+    padding-top: 100px;
+    flex-direction: column;
+    align-items: center;
+     
+}
+.row{
+    display: flex;
+    list-style: none;
+}
+li{
+    height: 5em;
+    width: 5em;
+    color: rgba(0, 0, 0, 0.6);
+    display: inline block;
+    border-radius: 0.4em;
+    letter-spacing: 1px;
+    margin: 0.4em;
+    text-align: center;
+    line-height: 3em;
+    font-size: 1em;
+    box-shadow: 3px 3px 5px #0008ff;
+}
+.cl{
+    font-size: 100px;
+    color: #fff;
+    position: absolute;
+    top: 5%;
+    left: 5%;
+    text-shadow: 10px 10px 10px  #0008ff;
+}
+.result{
+    font-size: 100px;
+    color: #fff;
+    position: absolute;
+    top: 5%;
+    left: 10%;
+    text-shadow: 10px 10px 10px  #0008ff;
+}
+#tab{
+    width: 5em;
+}
+#caps{
+    width: 6em;
+}
+#left-shift,
+#right-shift{
+    width: 8em;
+}
+#enter{
+    width: 6em;
+}
+#back{
+    width: 5em;
+}
+.pinky{
+    background-color: rgb(127, 193, 247);
+    border: 2px solid rgb(127, 193, 247);
+}
+.sky{
+    background-color: rgb(198, 226, 249);
+    border: 2px solid rgb(198, 226, 249);
+
+}
+.sea{
+    background-color: rgb(0, 116, 239);
+    border: 2px solid rgb(0, 116, 239);
+
+}
+.sun{
+    background-color: #ff4040;
+    border: 2px solid #ff4040;
+
+}
+.shine{
+    background-color: #f17e3c;
+    border: 2px solid #f17e3c;
+
+}
+
+.hit{
+    animation: hit 0.3s both;
+}
+
+@keyframes vibrate {
+    0%{
+        transform: translate(0);
+    }
+    20%{
+        transform: translate(-2px,2px);
+    }
+    40%{
+        transform: translate(2px,-2px);
+    }
+    60%{
+        transform: translate(2px,2px);
+    }
+    80%{
+        transform: translate(2px,-2px);
+    } 
+    100%{
+        transform: translate(0);
+
+    }
+}
+.selected{
+    background-color: transparent;
+    animation: vibrate 0.3s linear infinite both;
+}
+@keyframes hit {
+    0%{
+    transform:scale(1.2);
+  }
+
+  100%{
+    transform:scale(1);
+  }
+}
+@keyframes bgAnimation{
+    0%{
+      background-position: 0% 50%;
+    }
+    50%{
+      background-position: 100% 50%;
+    }
+    100%{
+      background-position: 0% 50%;
+    }
+}  
+.pinky.selected{
+    color: rgb(127, 193, 247);
+}
+.sky.selected{
+    color: rgb(198, 226, 249);
+}
+.sea.selected{
+    color: rgb(0, 116, 239);
+}
+.sun.selected{
+    color: #ff4040;
+}
+.shine.selected{
+    color: #f17e3c;
+}
+
+</style>
+<body>
+    <div class="cl">60</div>
+    <p class="result"></p>
+    <div class="keyboard" id="kb">
+        <div class="row row-0">
+            <li class="sky" id="esc">~</li>
+            <li class="sky" id="1">1</li>
+            <li class="sky" id="2">2</li>
+            <li class="sky" id="3">3</li>
+            <li class="sky" id="4">4</li>
+            <li class="sky" id="5">5</li>
+            <li class="sky" id="6">6</li>
+            <li class="sky" id="7">7</li>
+            <li class="sky" id="8">8</li>
+            <li class="sky" id="9">9</li>
+            <li class="sky" id="0">0</li>
+            <li class="sky" id="-">-</li>
+            <li class="sky" id="+">+</li>
+            <li class="sky" id="back">BACK</li>
+        </div>
+        <div class="row row-1">
+            <li class="sky" id="tab">TAB</li>
+            <li class="sky" id="Q">Q</li>
+            <li class="sun" id="W">W</li>
+            <li class="sky" id="E">E</li>
+            <li class="sky" id="R">R</li>
+            <li class="sky" id="T">T</li>
+            <li class="sky" id="Y">Y</li>
+            <li class="sky" id="U">U</li>
+            <li class="sky" id="I">I</li>
+            <li class="sky" id="O">O</li>
+            <li class="sky" id="P">P</li>
+            <li class="sky" id="[">[</li>
+            <li class="sky" id="]">]</li>
+            <li class="sky" id="\">\</li>
+        </div>
+        <div class="row row-2">
+            <li class="pinky" id="caps">CAPS</li>
+            <li class="shine" id="A">A</li>
+            <li class="shine" id="S">S</li>
+            <li class="shine" id="D">D</li>
+            <li class="pinky" id="F">F</li>
+            <li class="pinky" id="G">G</li>
+            <li class="pinky" id="H">H</li>
+            <li class="pinky" id="J">J</li>
+            <li class="pinky" id="K">K</li>
+            <li class="pinky" id="L">L</li>
+            <li class="pinky" id=";">;</li>
+            <li class="pinky" id="'">'</li>
+            <li class="pinky" id="enter">ENTER</li>
+        </div>
+        <div class="row row-3">
+            <li class="sea" id="left-shift">SHIFT</li>
+            <li class="sea" id="Z">Z</li>
+            <li class="sea" id="X">X</li>
+            <li class="sea" id="C">C</li>
+            <li class="sea" id="V">V</li>
+            <li class="sea" id="B">B</li>
+            <li class="sea" id="N">N</li>
+            <li class="sea" id="M">M</li>
+            <li class="sea" id=",">,</li>
+            <li class="sea" id=".">.</li>
+            <li class="sea" id="/">/</li>
+            <li class="sea" id="right-shift">SHIFT</li>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    var edjs = document.getElementsByClassName('cl')[0];
+    var time = 60;
+    var timer = setInterval(function(){
+        time --;
+        if (time == 0){
+            clearInterval(timer);
+        }
+        edjs.innerHTML = time;
+    },1000);
+
+    
+    document.addEventListener("keyup",event=>{
+        let keyPassed = String.fromCharCode(event.keyCode)
+        const keyElement = document.getElementById(keyPassed)
+        keyElement.classList.add("hit")
+        keyElement.addEventListener("animationend",()=>{
+            keyElement.classList.remove("hit")
+        })
+        
+        const heightlightKey = document.querySelector(".selected")
+        if (keyPassed == heightlightKey.innerHTML){
+            heightlightKey.classList.remove("selected")
+            
+            targetRandomKey()
+        }
+
+    })
+    const keys = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZ"]
+    function getRandomNumber(min,max){
+        min = Math.ceil(min)
+        max = Math.floor(max)
+        return Math.floor(Math.random() * (max + 1))
+    }
+    function getRandomKey(){
+        return keys[getRandomNumber(0,keys.length - 1)]
+    }
+    function targetRandomKey(){
+        const key = document.getElementById(getRandomKey())
+        key.classList.add("selected")
+        
+    }
+    targetRandomKey()
+    var result = document.getElementsByClassName("result")[0] 
+    function woc(){
+    result.innerHTML = console.count(keyPress);    
+    }
+    woc()
+</script>

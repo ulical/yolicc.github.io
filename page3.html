@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>缘分</title>
+
+  <style>
+    *{
+      padding: 0px;
+      margin: 0px;
+      bottom: 0;
+      text-decoration: none;
+    }
+    body{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 160vh;
+      background: linear-gradient(125deg,
+      hsl(311, 85%, 69%),
+      #64e8ce,
+      #079bdb,
+      #d63163,
+      #dcf7f1);
+      background-size: 500%;
+      background-attachment:fixed;
+      animation: bgAnimation 5s linear infinite;
+    }
+    @keyframes bgAnimation{
+      0%{
+        background-position: 0% 50%;
+      }
+      50%{
+        background-position: 100% 50%;
+      }
+      100%{
+        background-position: 0% 50%;
+      }
+    }
+
+    .shell {
+      width: 800px;
+      height: 500px;
+      position: absolute;
+      top: 10vh;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 20px 30px 20px rgba(0,0,0,0.25);
+    }
+    .images{
+      width: 100%;
+      height: 100%;
+      display: flex;
+      left: 0;
+      transition: -2s;
+      z-index: -1;
+      position: absolute;
+      top: 0;
+    }
+    .img{
+      width: 100%;
+      background-size: cover;
+    }
+    .text{
+      z-index: 1;
+      margin-top: 70vh;
+      color: rgba(232, 212, 193, 0.846);
+    }
+    .sc{
+      z-index: 1;
+      position: absolute;
+      flex-direction: column;
+      top: 100vh;
+      line-height: 2;
+    }
+
+  </style>
+</head>
+<body>
+  <embed src="Hindenburg Lover - Anson Seabra.mp3"  autostart="true"  loop="true" hidden="true"></embed>
+  <bgsound src="Hindenburg Lover - Anson Seabra.mp3" autostart="ture" loop="ture" hidden="true"/>
+  <div class="shell">
+    <h1 class="text" align="center" >你和她/他原来是这种关系？</h1>
+    <div class="images">
+      <div class="img" style="background-image:url('page3_1.jpg')"></div>
+      <div class="img" style="background-image:url('page3_2.jpg')"></div>
+      <div class="img" style="background-image:url('page3_3.jpg')"></div>
+      
+    </div>
+  </div>
+  <div class="sc">
+    <form action='my.php'>
+      <p align="center">输入你的姓名的笔画数</p>
+      <input type='text' name='n1'/>
+      <p align="center">输入TA的姓名的笔画数</p>
+      <input type='text' name='n2'/>
+      <p></p>
+      <div style="text-align:center">
+        <button>测一测</button>                     
+      </div>
+    </form>
+    <form action='mm.php'>
+      <p align="center">输入你的姓名</p>
+      <input type='text'  name='m1'/>
+      <p align="center">输入TA的姓名</p>
+      <input type='text' name='m2'/>
+      <p></p>
+
+      <div style="text-align:center">
+        <button>测一测</button>                     
+      </div>
+    </form>
+  </div>
+</body>
+
+</html>
