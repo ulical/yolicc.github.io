@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #23262e;
+        }
+        body{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-items: center;
+            align-items: center;
+            background: #f1ede5;
+        }
+        .warp{
+            width: 1340px;
+            height: 750px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 10px 10px 50px rgba(0, 0, 0, 0.1);
+            display: grid;
+            overflow: hidden;
+        }
+        .content{
+            width: 1240px;
+            height: 750px;
+            margin: 0 auto;
+            position: relative;
+            display: flex;
+            align-items: center;
+            user-select: none;
+        }
+        .video{
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            position: absolute;
+            top: 0;
+            right: 0;
+            transition: 0s;
+        }
+        .video video{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .text{
+            position: absolute;
+            left: -500px;
+            transition: 0.5s;
+            opacity: 0;
+        }
+        .ko{
+            width: 230px;
+            margin: 20px 0;
+            outline: none;
+            padding: 10px;
+            border-radius: 20px;
+            border-width: 1px;
+            border-color: #e46026;
+        }
+        .text h1{
+            font-size: 70px;
+            line-height: 100%;
+        }
+        .text h2{
+            font-size: 32px;
+            padding: 30px 0;
+            font-weight: 200;
+        }
+        .more{
+            width: 150px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            background: #e46026;
+            color: #fff;
+            border-color: white;
+            border-radius: 10px;
+            align-items: center;
+        }
+        .start1{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 20%;
+            left: 111%;
+            z-index: 999;
+            transition: 1s;
+            animation: bounce 3s infinite;
+        }
+        .start2{
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            top: 80%;
+            left: 111%;
+            z-index: 999;
+            transition: 1s;
+            animation: bounce 3s infinite;
+        }
+        .start3{
+            width: 200px;
+            height: 140px;
+            position: absolute;
+            top: 50%;
+            left: 111%;
+            z-index: 999;
+            transition: 1s;
+            animation: bounce 3s infinite;
+        }
+        @keyframes bounce{
+            0%{
+                transform: translateY(0);
+            }
+            50%{
+                transform: translateY(-20px);
+            }
+            100%{
+                transform: translateY(0);
+            }
+        }
+        .content:hover .text{
+            position: absolute;
+            left: 30px;
+            opacity: 1;
+            z-index: 88;
+        }
+        .content:hover .start1{
+            position: absolute;
+            top: 20%;
+            left: 40%;
+            z-index: 88;
+        }
+        .content:hover .start2{
+            position: absolute;
+            top: 80%;
+            left: 37%;
+            z-index: 88;
+        }
+        .content:hover .start3{
+            position: absolute;
+            top: 50%;
+            left: 87%;
+            z-index: 88;
+        }
+        .content:hover .video{
+            width: 50%;
+            position: absolute;
+            right: 3%;
+            top:0px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="warp">
+        <div class="content">
+            <div class="text">
+                <h1>欢迎光临</h1>
+                <!--<h2>输入昵称方可进入</h2>
+                <input type="text" class="ko" placeholder="YOUR NUMBER">
+                <button class="more" href="">Into</button>-->
+                <button class="more" onclick="window.location.href='page2.html'">风间彻</button>
+                <button class="more" onclick="window.location.href='page3.html'">缘分计算</button>
+                <button class="more" onclick="window.location.href='keyboard.html'">打字手速</button>
+                <button class="more" onclick="window.location.href='msg.html'">留言板</button>
+                
+
+            </div>
+            <div class="video">
+                <audio src="lnop1.mp3" loop="loop" controls="controls" autoplay="autoplay"></audio>
+                <video src="vodio1.mp4" muted loop autoplay></video>
+            </div>
+            <img class="start1" src="sm.webp" alt=""/>
+            <img class="start2" src="xingqiu.png" alt=""/>
+            <img class="start3" src="xlh.png" alt=""/>
+        </div>
+    </div>
+</body>
+</html>
+
