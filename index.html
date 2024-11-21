@@ -2,91 +2,132 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>登录页面</title>
-    <style>
-        body{
-            /*设置背景渐变*/
-            background-image: linear-gradient(to left,
-            #07a348,#ebfa44);
-            display: flex;
-            justify-content: center;
-        }
-        .a{
-            position: relative;
-            top: 100px;
-            width: 1100px;
-            height: 550px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, .8);
-            display: flex;
-        }
-        .b{
-            width: 800px;
-            height: 550px;
-            background-image: url("bd880857gy1h8tabb4ji5j227p18ue81.jpg");
-            /*让图片适应大小*/
-            background-size: cover;
-        }
-        .c{
-            width: 300px;
-            height: 550px;
-            background-color: aquamarine;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .d{
-            width: 250px;
-            height: 500px;
-        }
-        .d h1{
-            font: 900 30px '';
-        }
-        .e{
-            width: 230px;
-            margin: 20px 0;
-            outline: none;
-            border: 0;
-            padding: 10px;
-            border-bottom: 3px solid rgba(80, 80, 170);
-
-            font: 900 16px '';
-        }
-        .f{
-            float:right;
-            margin: 10px 0;
-        }
-        .g{
-            position: absolute;
-            margin: 20px;
-            bottom: 40px;
-            display: block;
-            width: 200px;
-            height: 60px;
-            font: 900 30px '';
-            text-decoration: none;
-            line-height: 50px;
-            border-radius: 30px;
-            background-image:linear-gradient(to left,
-            #07a348,#ebfa44) ;
-            text-align: center;
-        }
-    </style>
+    <title>学术小狗</title>
 </head>
-<body>
-    <div class="a">
-        <div class="b"></div>
-        <div class="c">
-           <div class="d">
-            <h1>Login/Register</h1>
-            <input type="text" class="e" placeholder="USER NAME">
-            <input type="text" class="e" placeholder="ACCOUNT">
-            <input type="password" class="e" placeholder="PASSWORD">
-            <a href="" class="f">Forget the password</a>
-            <a href="s1.html" class="g">Login</a>
-           </div>
-        </div>
+<style>
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+        position: relative;
+        background-color: aqua;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+        width: 100vw;
+        align-items: center;
+        overflow: hidden;
+
+    }
+h1{
+    position:absolute;
+    left:3px;
+    top: 2px;
+    color:  rgb(2, 31, 28);
+}
+.xg{ 
+    width: 500px;
+    height: 500px;
+    text-align: center;
+    position: absolute;
+    bottom: -5vh;
+    right: 13vw;
+    display: inline-block; 
+    animation: dh 1s linear;
+}
+.merit{
+    position: absolute;
+    bottom: -2%;
+    right: -70%;
+    display: none;
+    text-align: center;
+
+}
+
+.nice{
+    font-size: 38px;
+    color:rgb(235, 18, 138);
+    animation: fadeOut 1s linear;
+}
+.luck{
+    font-size: 33px;
+    color: rgb(235, 18, 138);
+    animation: fadeOut 1s linear;
+}
+.good{
+    font-size: 28px;
+    color: rgb(235, 18, 138);
+    animation: fadeOut 1s linear;
+}
+.xg:active {
+
+  animation-name: dh;
+  animation-duration: 1s; 
+  animation-timing-function: ease; 
+  animation-fill-mode: forwards; 
+}
+
+@keyframes fadeOut{
+    0%{
+        opacity: 0;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 1;
+        transform: translateY(20px);
+    }
+}
+@keyframes dh{
+    0%{
+        transform: scale(0.8);
+    }
+    100%{
+        transform: scale(1.1);
+    }
+}   
+
+</style>
+<body background="bj.jpg">
+    <h1>点击学术小狗</h1>
+    <audio id="audio" src="https://music.163.com/song/media/outer/url?id=1898315900.mp3"></audio>
+    <img  class="xg"  id="gg" src="xtxg.png" alt="nice" style="cursor: pointer;" onclick="show()">
+    <div id="merit">
+        <p class="nice">智慧+1</p>
+        <p class="luck">好运+1</p>
+        <p class="good">好心情+1</p>
     </div>
 </body>
+<script>
+    function show(){
+        document.getElementById('merit').style.display = "block";
+        setTimeout(function(){
+            document.getElementById('merit').style.display = "none";
+        },500);
+    }
+    let clickCount = 0;
+    const image = document.getElementById('gg');
+    image.addEventListener('click',function(){
+        clickCount++;
+        if(clickCount > 3){
+            alert("尹老师俺的电话号码是18311818021，要是原谅俺就加加俺吧！")
+            removeEventListener()
+        };
+    })
+    function playSound(){
+            var audio=document.getElementById("audio");
+            if(audio.paused) {  
+                audio.load;     
+                audio.play();	
+            }else {             
+                audio.pause();  
+            }
+        }
+
+        window.onclick=function () {
+            playSound();
+        }
+
+</script>
 </html>
